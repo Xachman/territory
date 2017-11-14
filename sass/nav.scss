@@ -1,0 +1,31 @@
+.top-bar-section  {
+    .dropdown li:not(.has-form):not(.active)>a:not(.button) {
+        background: #116d76;
+    }
+    .dropdown li:not(.has-form):not(.active):hover>a:not(.button), ul li:hover:not(.has-form)>a {
+        background-color: #308e97;
+        background: #308e97;
+    }
+    ul {
+        li {
+            a {
+                background: #116d76;
+            }
+            ul {
+                &.dropdown {
+                    display: none;
+                }
+            }
+            &.has-dropdown {
+                &:hover {
+                    ul.dropdown {
+                        display:block;
+                    }
+                }
+            }
+        }
+
+    }
+
+    
+}

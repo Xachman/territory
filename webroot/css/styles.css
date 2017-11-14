@@ -1,0 +1,56 @@
+.home .content h3 {
+  color: #fff;
+  margin: 0; }
+
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
+  background: #116d76; }
+
+.top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button), .top-bar-section ul li:hover:not(.has-form) > a {
+  background-color: #308e97;
+  background: #308e97; }
+
+.top-bar-section ul li a {
+  background: #116d76; }
+
+.top-bar-section ul li ul.dropdown {
+  display: none; }
+
+.top-bar-section ul li.has-dropdown:hover ul.dropdown {
+  display: block; }
+
+.users-login nav.top-bar {
+  display: none; }
+
+#header h2 {
+  color: #fff; }
+
+#header {
+  margin: 0 0 1em 0; }
+
+.hidden {
+  display: none; }
+
+.pdf-content .page-column {
+  width: 139px;
+  float: left;
+  height: 950px; }
+  .pdf-content .page-column table {
+    margin-bottom: 0; }
+  .pdf-content .page-column .title {
+    font-size: 16px; }
+  .pdf-content .page-column .name {
+    font-size: 12px;
+    height: 18px; }
+  .pdf-content .page-column .date {
+    font-size: 12px;
+    height: 18px; }
+  .pdf-content .page-column td {
+    border-left: 1px solid #444;
+    border-bottom: 1px solid #444;
+    text-align: center;
+    padding: 5px; }
+  .pdf-content .page-column.last-column td {
+    border-right: 1px solid #444; }
+
+.territories-territorylist .content .checked-out {
+  background: #ccc; }

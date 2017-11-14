@@ -1,0 +1,11 @@
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+nbproject/
+*.swp
+node_modules/
+.bash_history
+.composer
+dump.sql
+webroot/files/

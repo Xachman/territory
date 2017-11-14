@@ -1,0 +1,38 @@
+version: "2"
+services:
+    web:
+      build: 
+        context: .
+        args:
+          COMPOSER_INSTALL:
+          NPM_INSTALL:
+      image: xachman/territory
+      links:
+        - mysql:mysqlhost
+        - testdb:testhost
+      environment:
+        - VIRTUAL_HOST=territory.dev
+      ports:
+        - "3000:80"
+      volumes: 
+        - ./:/var/www/
+        - /var/www/vendor
+        - /var/www/node_modules
+      network_mode: bridge
+    mysql:
+        image: mysql
+        ports:
+          - 3309:3306
+        environment:
+          MYSQL_DATABASE: carts
+          MYSQL_ROOT_PASSWORD: root
+        volumes:
+          - /var/lib/mysql
+          - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+        network_mode: bridge
+    testdb:
+      image: mysql
+      environment:
+        MYSQL_DATABASE: testdb
+        MYSQL_ROOT_PASSWORD: root
+      network_mode: bridge

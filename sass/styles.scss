@@ -1,0 +1,49 @@
+.users-login nav.top-bar {
+    display: none;
+}
+
+#header h2 {
+    color: #fff;
+}
+
+#header {
+    margin: 0 0 1em 0;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.pdf-content {
+    .page-column {
+        width: 139px;
+        float: left;
+        height: 950px;
+        table {
+            margin-bottom: 0;
+        }
+        .title {
+            font-size: 16px;
+        }
+        .name {
+            font-size: 12px;
+            height: 18px
+        }
+        .date {
+            font-size: 12px;
+            height: 18px;
+        }
+        td {
+            border-left: 1px solid #444;
+            border-bottom: 1px solid #444;
+            text-align: center;
+            padding: 5px;
+        }
+        &.last-column {
+            td {
+                border-right: 1px solid #444;
+            }
+        }
+    }
+}
