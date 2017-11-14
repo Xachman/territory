@@ -9,3 +9,6 @@ node_modules/
 .composer
 dump.sql
 webroot/files/
+docker-sync.yml
+default.prf
+sync/
