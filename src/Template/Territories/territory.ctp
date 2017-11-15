@@ -36,7 +36,7 @@
             ?>
         <tr class="checkout">
             <td>
-                <?=$checkout->name ?> 
+                <?= $this->Html->link($checkout->name, ['action' => 'view', 'controller' => 'Checkouts', $checkout->id]) ?>
             </td>
             <td>
                 <?=$checkout->checkout_date->format('n/j/Y')?>
