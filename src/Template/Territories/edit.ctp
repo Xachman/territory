@@ -33,7 +33,6 @@ $dncHelper = $this->loadHelper('DoNotCalls');
         echo $this->Form->input('description');
         echo $this->Form->input('url');
         echo $this->Form->input('territory_number', ['type' => 'number']);
-        echo $this->Form->input('turnindate', ['empty' => true, 'type' => 'datetime']);
         ?>
          <?= $this->Form->button(__('Submit')) ?>
     </fieldset>
