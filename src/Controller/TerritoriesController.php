@@ -40,8 +40,8 @@ class TerritoriesController extends AppController {
             'contain' => ['Users']
         ]);
 
-        $this->set('territory', $territory);
-        $this->set('_serialize', ['territory']);
+        $this->territory($territory->territory_number);
+
     }
 
     /**

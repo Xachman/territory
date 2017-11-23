@@ -1,60 +1,58 @@
+<?php
+
+/* @var $checkouts Cake\ORM\Query */
+
+?>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Territory'), ['action' => 'edit', $territory->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Territory'), ['action' => 'delete', $territory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $territory->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Territories'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Territory'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Territories'), ['action' => 'territoryList']) ?> </li>
+        <?php if($territory->is_checked_out === 0){?><li><?= $this->Html->link(__('Checkout Territory'), ['controller' => 'Checkouts', 'action' => 'checkout', $territory->territory_number]) ?> </li><?php } ?>
+        <?php if($territory->is_checked_out === 1){?><li><?= $this->Html->link(__('Checkin Territory'), ['controller' => 'Territories', 'action' => 'checkin', $territory->id]) ?> </li><?php } ?>
     </ul>
 </nav>
 <div class="territories view large-9 medium-8 columns content">
     <h3><?= h($territory->title) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th><?= __('User') ?></th>
-            <td><?= $territory->has('user') ? $this->Html->link($territory->user->id, ['controller' => 'Users', 'action' => 'view', $territory->user->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Title') ?></th>
-            <td><?= h($territory->title) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Pdf') ?></th>
-            <td><?= h($territory->pdf) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Image') ?></th>
-            <td><?= h($territory->image) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Id') ?></th>
-            <td><?= $this->Number->format($territory->id) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Created By') ?></th>
-            <td><?= $this->Number->format($territory->created_by) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Turnindate') ?></th>
-            <td><?= h($territory->turnindate) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Created') ?></th>
-            <td><?= h($territory->created) ?></td>
-        </tr>
-        <tr>
-            <th><?= __('Modified') ?></th>
-            <td><?= h($territory->modified) ?></td>
-        </tr>
+    <img src="<?='/files/Territories/image/'.$territory->image?>" ?>
     </table>
     <div class="row">
-        <h4><?= __('Description') ?></h4>
-        <?= $this->Text->autoParagraph(h($territory->description)); ?>
-    </div>
-    <div class="row">
-        <h4><?= __('Url') ?></h4>
-        <?= $this->Text->autoParagraph(h($territory->url)); ?>
+        <h4><?= __('Checkouts') ?></h4>
+        <table>
+            <tr>
+                <th> 
+                    Name
+                </th>
+                <th> 
+                    Checkout Date
+                </th>
+                <th> 
+                    Turn in Date
+                </th>
+            </tr>
+        <?php
+        foreach($checkouts->getIterator() as $checkout){
+            ?>
+        <tr class="checkout">
+            <td>
+                <?= $this->Html->link($checkout->name, ['action' => 'view', 'controller' => 'Checkouts', $checkout->id]) ?>
+            </td>
+            <td>
+                <?=$checkout->checkout_date->format('n/j/Y')?>
+            </td>
+            <td>
+                <?php
+                    if($checkout->turnindate) {
+                        echo $checkout->turnindate->format('n/j/Y');
+                    }
+                ?>
+            </td>
+        </tr>
+        <?php
+        }
+        ?>
+        </table>
     </div>
 </div>
+
