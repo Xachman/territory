@@ -18,6 +18,7 @@ class DoNotCallsHelper extends Helper {
         ?>
         <?= $this->Form->create(null, ['url' => ['controller' => 'do-not-calls', 'action' => 'add'], 'id' => 'dncAjaxForm']); ?>
         <div class="current">
+            <div class="dnc-entry row"><div class="columns medium-10 values"></div><div class="columns medium-2 remove"></div></div>
             <?php
             foreach ($donotcalls as $row) {
                 /* @var $row App\Model\Entity\DoNotCall */
