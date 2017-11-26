@@ -1,4 +1,44 @@
 <div class="home">
+    <?php if($nextOut ) { ?>
+    <div class="content columns large-12">
+    <header id="header" class="medium-12 columns">
+        <div class="columns">
+            <h3>Next Out</h3>
+        </div>
+    </header>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Turn In Date</th>
+            <th>Title</th>
+            <th>Number</th>
+        </tr>
+        <?php
+        $counter = 0;
+    //echo count($taken_rows);
+        foreach ($nextOut->getIterator() as $out) {
+        ?>
+            <tr class="over-90">
+                <td>
+                        <h6><?= $out->checkout_name ?></h6>
+                </td>
+                <td><?= date("m/d/Y" , strtotime($out->turnindate)) ?></td>
+                <td>
+                    <?php echo $this->Html->link(
+                        $out->title,
+                        ['controller' => 'Territories', 'action' => 'territory', $out->territory_number]
+                    );   ?>
+                </td>
+                <td>
+                    <?php echo $out->territory_number ?>
+                </td>
+            </tr>
+            <?php
+        }
+    ?>
+    </table>
+    </div>
+    <?php } ?>
     <?php if($over90DaysOut ) { ?>
     <div class="content columns large-6">
     <header id="header" class="medium-12 columns">

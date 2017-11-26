@@ -54,7 +54,8 @@ class PagesController extends AppController
         $this->loadModel('Territories');
         $over90DaysOut = $this->Territories->overDaysOut(120);
         $oneYear = $this->Territories->orderByTurninDate()->where(["turnindate  <" => date('Y-m-d H:i:s', strtotime(" -1 year"))])->order("turnindate");
-        $this->set(compact('page', 'subpage', 'user', 'over90DaysOut', 'oneYear'));
+        $nextOut = $this->Territories->orderByTurninDate()->order("turnindate")->where(['is_checked_out !=' => 1])->limit(5);
+        $this->set(compact('page', 'subpage', 'user', 'over90DaysOut', 'oneYear', 'nextOut'));
         try {
             $this->render(implode('/', $path));
         } catch (MissingTemplateException $e) {
