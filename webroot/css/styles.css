@@ -16,7 +16,8 @@
   display: none; }
 
 .top-bar-section ul li.has-dropdown:hover ul.dropdown {
-  display: block; }
+  display: block;
+  clip: auto; }
 
 .users-login nav.top-bar {
   display: none; }
