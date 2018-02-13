@@ -12,3 +12,4 @@ webroot/files/
 docker-sync.yml
 default.prf
 sync/
+.c9
