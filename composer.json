@@ -4,6 +4,29 @@
     "homepage": "http://cakephp.org",
     "type": "project",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+              "name": "ivanamat/cakephp3-markdown",
+              "version":"master",
+              "source": {
+                  "url": "https://github.com/Xachman/cakephp3-markdown.git",
+                  "type": "git",
+                  "reference":"master"
+                },
+                "autoload": {
+                    "psr-4": { 
+                                "Markdown\\": "src"
+                            },
+                            "classmap": [
+                                "Lib/Parsedown"
+                            ]
+                }
+            }
+           
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "cakephp/cakephp": "~3.2",
@@ -11,7 +34,8 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "josegonzalez/cakephp-upload": "~3.0",
-        "friendsofcake/cakepdf": "^3.2"
+        "friendsofcake/cakepdf": "^3.2",
+        "ivanamat/cakephp3-markdown": "master"
     },
     "require-dev": {
         "psy/psysh": "@stable",
