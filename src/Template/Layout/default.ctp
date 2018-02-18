@@ -57,6 +57,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li><a href="/participants">Participants</a></li>
                 <li><a href="/users/edit/<?php echo $userLink['id'] ?>">Edit User</a></li>
                 <li><a href="/users/logout" >Logout</a></li>
+                <li><a href="/docs">Docs</a></li>
             </ul>
         </div>
     </nav>
