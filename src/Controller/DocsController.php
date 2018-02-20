@@ -41,20 +41,23 @@ class DocsController extends AppController
     private function generateNav(): string {
 
         $html = '<ul class="side-nav">';
-        if ($handle = opendir($this->view_path)) {
-            while (false !== ($file = readdir($handle)))
+            $html .= '<li><a href="/Docs" >Home</a></li>';
+        $files = scandir($this->view_path);
+        if ($files) {
+            foreach ($files as $file)
             {
                 if ($file != "." && $file != ".." && strtolower(substr($file, strrpos($file, '.') + 1)) == 'md')
                 {
+                    
                     $sub = str_replace(substr($file, strrpos($file, '.')), "", $file);
-                    $linkName = ($sub == 'index')?  '' : '/'.$sub;
-                    $name = ($sub == 'index')? 'Home' : ucwords(str_replace('_', ' ', $sub));
+                    if($sub == 'index') continue;
+                    $linkName = '/'.$sub;
+                    $name = ucwords(str_replace('_', ' ', $sub));
 
                     $html .= '<li><a href="/Docs'.$linkName.'" >'.$name.'</a></li>';
 
                 }
             }
-            closedir($handle);
         }
 
         return $html."</ul>";
