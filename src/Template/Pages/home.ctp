@@ -99,11 +99,11 @@
         <?php
         $counter = 0;
     //echo count($taken_rows);
-        foreach ($oneYear->getIterator() as $out) {
+        foreach ($oneYear as $out) {
         ?>
             <tr class="over-90">
                 <td>
-                        <h6><?= $out->checkout_name ?></h6>
+                        <h6><?= $out->name ?></h6>
                 </td>
                 <td><?= date("m/d/Y" , strtotime($out->turnindate)) ?></td>
                 <td>

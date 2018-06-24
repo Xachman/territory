@@ -172,4 +172,17 @@ class TerritoriesTable extends Table
         
     }
 
+    public function getByNumber($n) {
+        return $this->find()->where(['Territories.territory_number'=>$n]);
+    }
+
+    private function getCheckouts($number) {
+        $checkouts = TableRegistry::get('Checkouts');
+        $territory = $this->getByNumber($number);
+        return $checkouts->find('all')->where(['Checkouts.territory_id'=>$territory->toArray()[0]->id]);
+    }
+
+    public function getLatestCheckout($n) {
+        return $this->getCheckouts($n)->order(['checkout_date' => 'DESC'])->limit(1);
+    }
 }
