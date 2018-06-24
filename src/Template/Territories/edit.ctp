@@ -40,6 +40,11 @@ $dncHelper = $this->loadHelper('DoNotCalls');
     <?= $this->Form->end() ?>
     <div class="clearfix"></div>
     <div class="do-not-calls">
+        <div class="row">
+            <div class="large-12 medium-8 columns">
+                <legend><?= __('Do Not Calls') ?></legend>
+            </div>
+        </div>
         <?php
        echo $dncHelper->makeTerritoriesDoNotCallForm($donotcalls, $territory->id); ?>
         
