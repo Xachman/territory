@@ -14,7 +14,6 @@
 .hidden {
     display: none;
 }
-
 .pdf-content {
     .page-column {
         width: 139px;
@@ -45,5 +44,26 @@
                 border-right: 1px solid #444;
             }
         }
+    }
+}
+@media (max-width: 400px) {
+    table {
+        tr {
+            td, th {
+                font-size: 0.75rem;
+                h6, h5 {
+
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+    .content {
+        padding: 5px;
+        
+    }
+    .content, #actions-sidebar {
+        margin-bottom: -99999px;
+        padding-bottom: 99999px;
     }
 }

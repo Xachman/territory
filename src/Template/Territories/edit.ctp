@@ -10,9 +10,7 @@ $dncHelper = $this->loadHelper('DoNotCalls');
                     __('Delete'), ['action' => 'delete', $territory->id], ['confirm' => __('Are you sure you want to delete # {0}?', $territory->id)]
             )
             ?></li>
-        <li><?= $this->Html->link(__('List Territories'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Territories'), ['action' => 'territoryList']) ?> </li>
     </ul>
 </nav>
 <div class="territories form large-9 medium-8 columns content">
