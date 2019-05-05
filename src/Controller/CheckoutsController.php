@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Controller\EmailsController;
 use Cake\Event\Event;
 /**
  * Checkouts Controller
@@ -102,7 +103,12 @@ class CheckoutsController extends AppController {
                         'contain' => []
                     ]);
                     $territory = $this->loadModel('territories')->patchEntity($territory, ['is_checked_out' => 1, 'checkout_id' => $checkout->id]);
-                    if ($this->loadModel('territories')->save($territory )) {
+					if ($this->loadModel('territories')->save($territory )) {
+						// email participant 
+						if($checkout->participant_id) {
+							$emailsController = new EmailsController();
+							$emailsController->emailCheckout($checkout->id);
+						}
                         $this->Flash->success(__('The checkout has been saved.'));
                         if($this->hasReferer()) {
                             return $this->referBack();
