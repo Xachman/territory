@@ -53,5 +53,16 @@
   .pdf-content .page-column.last-column td {
     border-right: 1px solid #444; }
 
+@media (max-width: 400px) {
+  table tr td, table tr th {
+    font-size: 0.75rem; }
+    table tr td h6, table tr td h5, table tr th h6, table tr th h5 {
+      font-size: 0.75rem; }
+  .content {
+    padding: 5px; }
+  .content, #actions-sidebar {
+    margin-bottom: -99999px;
+    padding-bottom: 99999px; } }
+
 .territories-territorylist .content .checked-out {
   background: #ccc; }
