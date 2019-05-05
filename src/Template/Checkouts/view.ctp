@@ -53,6 +53,7 @@
     if(isset($checkout->participant_id) && $checkout->participant_id) {
     ?>
     <a class="button" href="/emails/email-checkout/<?php echo $checkout->id ?>">Send Email</a>
+    <a class="button" href="/emails/email-reminder/<?php echo $checkout->id ?>">Send Email Reminder</a>
     <?php
     }
     ?>
