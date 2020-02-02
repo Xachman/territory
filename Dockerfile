@@ -1,9 +1,11 @@
 FROM xachman/cakephp3
 
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
-apt-get install -y nodejs && \
-sed -i 's/DocumentRoot \/var\/www\/webroot/DocumentRoot \/var\/www/g' /etc/apache2/sites-available/000-default.conf
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+apt-get install -y nodejs wget
 
+RUN apt install wget && wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet && \
+mv composer.phar /usr/local/bin/composer && \
+chmod +x  /usr/local/bin/composer 
 
 COPY ./composer.lock /var/www/
 COPY ./composer.json /var/www/
