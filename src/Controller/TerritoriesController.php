@@ -260,7 +260,7 @@ class TerritoriesController extends AppController {
 			'Checkouts' => [
 				"sort"	=> ["Checkouts.checkout_date" => "ASC"]
 			]
-			])->offset((($page - 1 ) * 3))->limit(3);
+			])->offset((($page - 1 ) * 3))->limit(6);
 	
 		$this->set(compact('territories', "page", "total_pages"));
         $this->render('territory-pages', 'debug'); //your $this->viewVars will be actually used.

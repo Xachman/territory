@@ -31,10 +31,13 @@
 .hidden {
   display: none; }
 
+.pdf-content table tr th {
+  border-bottom: 2px solid #444; }
+
 .pdf-content .page-column {
-  width: 139px;
+  width: 170px;
   float: left;
-  height: 950px; }
+  height: 1260px; }
   .pdf-content .page-column table {
     margin-bottom: 0; }
   .pdf-content .page-column .title {
